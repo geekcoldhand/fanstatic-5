@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
+//import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.tmo.syncupkids.app.fantastic5.databinding.FragmentFirstBinding;
@@ -34,13 +34,13 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
+        binding.task.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                NavHostFragment.findNavController(FirstFragment.this)
-//                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
-                viewModel.rewardsPoints++;
-                binding.textView2.setText(String.valueOf(viewModel.rewardsPoints));
+                NavHostFragment.findNavController(FirstFragment.this)
+                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+//                viewModel.rewardsPoints++;
+//                binding.textView2.setText(String.valueOf(viewModel.rewardsPoints));
             }
         });
     }
