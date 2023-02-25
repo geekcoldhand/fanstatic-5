@@ -1,7 +1,12 @@
 package com.tmo.syncupkids.app.fantastic5;
 
+
 import android.app.Activity;
+
+import android.content.Context;
+
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,8 +44,19 @@ public class SecondFragment extends Fragment {
                 NavHostFragment.findNavController(SecondFragment.this)
                         .navigate(R.id.action_SecondFragment_to_FirstFragment);
             }
+
+        });
+        binding.buttonSecond1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+
+                // Vibrate for 500 milliseconds
+                vibrator.vibrate(500);
+            }
         });
     }
+
 
     public void onCompletedTask(View view) {
         // Is the button now checked?
@@ -67,6 +83,7 @@ public class SecondFragment extends Fragment {
                     break;
         }
     }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
