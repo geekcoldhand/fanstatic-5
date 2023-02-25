@@ -16,7 +16,6 @@ import com.tmo.syncupkids.app.fantastic5.databinding.FragmentFirstBinding;
 public class FirstFragment extends Fragment {
 
     private FragmentFirstBinding binding;
-    private FirstViewModel viewModel;
 
     @Override
     public View onCreateView(
@@ -24,12 +23,17 @@ public class FirstFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        viewModel = new ViewModelProvider(this).get(FirstViewModel.class);
+
         binding = FragmentFirstBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
 
+    @Override
+    public void onResume() {
+        binding.textView2.setText(String.valueOf(.rewardsPoints));
+        super.onResume();
+    }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
