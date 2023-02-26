@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_fragment_twopointfive"
+            app:destination="@id/fragment_twopointfive" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -23,6 +26,15 @@
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_twopointfive"
+        android:name="com.tmo.syncupkids.app.fantastic5.fragment_twopointfive"
+        android:label="fragment_twopointfive2"
+        tools:layout="@layout/fragment_twopointfive2" >
+        <action
+            android:id="@+id/action_fragment_twopointfive_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
 </navigation>
