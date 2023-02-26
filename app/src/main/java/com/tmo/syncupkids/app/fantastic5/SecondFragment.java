@@ -32,8 +32,9 @@ public class SecondFragment extends Fragment {
         binding = FragmentSecondBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
+
     }
-    
+
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -43,6 +44,39 @@ public class SecondFragment extends Fragment {
             public void onClick(View view) {
                 NavHostFragment.findNavController(SecondFragment.this)
                         .navigate(R.id.action_SecondFragment_to_FirstFragment);
+            }
+
+        });
+
+        binding.radioButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Is the button now checked?
+                boolean checked = ((RadioButton) view).isChecked();
+
+
+                // Check which radio button was clicked
+                switch (view.getId()) {
+                    case R.id.radioButton:
+                        if (checked) {
+                            MainViewModel.rewardsPoints += 5;
+                        }
+
+                        break;
+                    case R.id.radioButton1:
+                        if (checked) {
+                            MainViewModel.rewardsPoints += 10;
+                        }
+
+
+                        break;
+                    case R.id.radioButton2:
+                        if (checked) {
+                            MainViewModel.rewardsPoints += 15;
+                        }
+
+                        break;
+                }
             }
 
         });
@@ -60,32 +94,7 @@ public class SecondFragment extends Fragment {
         });
     }
     public void onCompletedTask(View view) {
-        // Is the button now checked?
-        boolean checked = ((RadioButton) view).isChecked();
 
-
-        // Check which radio button was clicked
-        switch(view.getId()) {
-            case R.id.radioButton:
-                if (checked) {
-                    MainViewModel.rewardsPoints += 5;
-                }
-                    
-                    break;
-            case R.id.radioButton1:
-                if (checked) {
-                    MainViewModel.rewardsPoints += 10;
-                }
-
-
-                    break;
-            case R.id.radioButton2:
-                if (checked) {
-                    MainViewModel.rewardsPoints += 15;
-                }
-
-                    break;
-        }
     }
 
     @Override
@@ -93,5 +102,4 @@ public class SecondFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
 }

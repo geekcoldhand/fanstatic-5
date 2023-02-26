@@ -31,7 +31,7 @@ public class FirstFragment extends Fragment {
 
     @Override
     public void onResume() {
-        binding.textView2.setText((MainViewModel.rewardsPoints));
+        binding.textView2.setText(String.valueOf(MainViewModel.rewardsPoints));
         super.onResume();
     }
 
