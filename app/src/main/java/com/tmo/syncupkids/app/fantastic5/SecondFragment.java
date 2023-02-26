@@ -67,18 +67,22 @@ public class SecondFragment extends Fragment {
         // Check which radio button was clicked
         switch(view.getId()) {
             case R.id.radioButton:
-                if (checked)
-                    // add points
+                if (checked) {
+                    MainViewModel.rewardsPoints += 5;
+                }
                     
                     break;
             case R.id.radioButton1:
-                if (checked)
-                    // add points
+                if (checked) {
+                    MainViewModel.rewardsPoints += 10;
+                }
+
 
                     break;
             case R.id.radioButton2:
-                if (checked)
-                    // add points
+                if (checked) {
+                    MainViewModel.rewardsPoints += 15;
+                }
 
                     break;
         }
